@@ -514,7 +514,7 @@ def writeh5slice(A,FileName,FieldName,Shape):
 def normalize(A):
     A_min = np.min(A)
     return (A-A_min)/(np.max(A)-A_min)        
-def predict(model,A,res=5):
+def predict(model,A,res=0.391):
     MIN,MAX=np.load('minmax.npy')    
     y=model.predict(A)
     MIN=np.reshape(MIN,(1,y.shape[1]))
@@ -565,7 +565,7 @@ def show_feature_maps(A):
     N=np.ceil(np.sqrt(A.shape[0]))
     f=plt.figure(figsize=(N*10,N*10))
     for I in range(A.shape[0]):
-        plt.subplot(N,N,I+1)
+        plt.subplot(int(N),int(N),I+1)
         plt.imshow(normal(np.squeeze(A[I,:,:,:])))  
         plt.axis('off')
     plt.show()
