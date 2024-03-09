@@ -10,16 +10,17 @@ import glob
 
 
 def main():
-    mat_paths = glob.glob(os.path.join("Data/mat", '*.mat'))
+    mat_paths = glob.glob(os.path.join("/content/DeePoreCollab/Data", '*.mat'))
     model = dp.loadmodel()
 
     for i, mat in enumerate(mat_paths):
+        i+=1
         A = dp.feedsampledata(FileName=mat)
         # 3. show feature maps (optional)
         dp.show_feature_maps(A)
         # 4. predict properties
         all_preds = dp.predict(model, A, res=0.391)  # res is the spatial resolution of image in micron/pixel
-        dp.prettyresult(all_preds, 'out/results4e.{}.txt'.format(i))
+        dp.prettyresult(all_preds, 'results4e.{}.txt'.format(i))
 
 if __name__ == '__main__':
     main()
