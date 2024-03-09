@@ -10,7 +10,10 @@ import glob
 
 
 def main():
-    mat_paths = glob.glob(os.path.join("/content/DeePoreCollab/Data", '*.mat'))
+    mat_paths = []
+    for i in range(1,10):
+        mat_paths.append("/content/DeePoreCollab/Data/4e.{}.mat".format(i))
+    print(mat_paths)
     model = dp.loadmodel()
 
     for i, mat in enumerate(mat_paths):
@@ -40,3 +43,4 @@ if __name__ == '__main__':
 # 3. when your image is larger than 256 x 256 x 256, the code automatically consider sliding windows to cover the whole image and report back to you the averaged predictions
 # A=dp.feedsampledata(FileName="Data/Sample_large.mat")
 # when the data is loaded and transformed to the initial feature maps using this function, you are good to go and find its properties as shown above.
+
