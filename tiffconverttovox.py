@@ -6,7 +6,9 @@ import os
 
 
 def main():
-    tiff_paths = glob.glob(os.path.join("images", '*.tiff'))
+    tiff_paths = []
+    for i in range(1,10):
+        tiff_paths.append("/content/DeePoreCollab/4e.{}.tiff".format(i))
     print(tiff_paths)
     def tiff_to_binary_voxels(tiff_path):
         """
@@ -27,11 +29,12 @@ def main():
         return binary_voxels
 
     for i, tiff_file in enumerate(tiff_paths):
+        i+=1
         binary_voxels = tiff_to_binary_voxels(tiff_file)
         print(binary_voxels.shape)
         mat_data = {'A': binary_voxels}
         # Save the binary voxel data to a .mat file
-        savemat('Data/mat/voxelized_data4e.{}.mat'.format(i), mat_data)
+        savemat('Data/4e.{}.mat'.format(i), mat_data)
 
 if __name__ == '__main__':
     main()
