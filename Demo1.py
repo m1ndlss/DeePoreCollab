@@ -12,7 +12,7 @@ import glob
 def main():
     mat_paths = []
     for i in range(1,10):
-        mat_paths.append("C:/Users/bkotl/PycharmProjects/DeePoreCollab/Data/voxelized_images/4e.{}.mat".format(i))
+        mat_paths.append("C:/Users/bkotl/PycharmProjects/DeePoreCollab/Data/voxelized_images/3e.{}.mat".format(i))
     print(mat_paths)
     model = dp.loadmodel()
 
@@ -23,7 +23,7 @@ def main():
         dp.show_feature_maps(A)
         # 4. predict properties
         all_preds = dp.predict(model, A, res=0.391)  # res is the spatial resolution of image in micron/pixel
-        dp.prettyresult(all_preds, 'C:/Users/bkotl/PycharmProjects/DeePoreCollab/results_folder/results4e.{}.txt'.format(i))
+        dp.prettyresult(all_preds, 'C:/Users/bkotl/PycharmProjects/DeePoreCollab/results_folder/results3e.{}.txt'.format(i))
 
 if __name__ == '__main__':
     main()
