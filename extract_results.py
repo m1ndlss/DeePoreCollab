@@ -3,11 +3,11 @@ import os
 import csv
 
 # Directory where your files are stored
-directory = "C:/Users/bkotl/PycharmProjects/DeePoreCollab/results_folder"
+directory = "C:/Users/bkotl/PycharmProjects/DeePoreCollab/results_folder/coated_res"
 pattern = r"Absolute Permeability \(um2\)\s+([\d\.]+).*?Tortuosity \(ratio\)\s+([\d\.]+)"
 
 # Name of the CSV file where results will be saved
-csv_file_path = "C:/Users/bkotl/PycharmProjects/DeePoreCollab/results_summary3.csv"
+csv_file_path = "C:/Users/bkotl/PycharmProjects/DeePoreCollab/results_coating_7.csv"
 
 # Store results
 results = [("Filename", "Absolute Permeability (um2)", "Tortuosity (ratio)")]
@@ -15,7 +15,7 @@ results = [("Filename", "Absolute Permeability (um2)", "Tortuosity (ratio)")]
 # Loop through each file in the directory
 for filename in os.listdir(directory):
     # Check if the file follows the naming convention
-    if filename.startswith("results35e.") and filename.endswith("c.txt"):
+    if filename.startswith("results3e.") and filename.endswith("c7.txt"):
         # Construct the full path to the file
         filepath = os.path.join(directory, filename)
         # Read the file content

@@ -7,8 +7,8 @@ import os
 
 def main():
     tiff_paths = []
-    for i in range(1,10):
-        tiff_paths.append("C:/Users/bkotl/PycharmProjects/DeePoreCollab/Fiber_Files/35e.{}c.tiff".format(i))
+    for i in range(2,9):
+        tiff_paths.append("C:/Users/bkotl/PycharmProjects/DeePoreCollab/Fiber_Files/Coated/3e.{}c7.tiff".format(i))
     print(tiff_paths)
     def tiff_to_binary_voxels(tiff_path):
         """
@@ -29,12 +29,12 @@ def main():
         return binary_voxels
 
     for i, tiff_file in enumerate(tiff_paths):
-        i+=1
+        i+=2
         binary_voxels = tiff_to_binary_voxels(tiff_file)
         print(binary_voxels.shape)
         mat_data = {'A': binary_voxels}
         # Save the binary voxel data to a .mat file
-        savemat('C:/Users/bkotl/PycharmProjects/DeePoreCollab/Data/voxelized_images/35e.{}c.mat'.format(i), mat_data)
+        savemat('C:/Users/bkotl/PycharmProjects/DeePoreCollab/Data/voxelized_images/coated_vox/3e.{}c7.mat'.format(i), mat_data)
 
 if __name__ == '__main__':
     main()

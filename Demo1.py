@@ -11,19 +11,19 @@ import glob
 
 def main():
     mat_paths = []
-    for i in range(1,10):
-        mat_paths.append("C:/Users/bkotl/PycharmProjects/DeePoreCollab/Data/voxelized_images/35e.{}c.mat".format(i))
+    for i in range(2,9):
+        mat_paths.append("C:/Users/bkotl/PycharmProjects/DeePoreCollab/Data/voxelized_images/coated_vox/3e.{}c7.mat".format(i))
     print(mat_paths)
     model = dp.loadmodel()
 
     for i, mat in enumerate(mat_paths):
-        i+=1
+        i+=2
         A = dp.feedsampledata(FileName=mat)
         # 3. show feature maps (optional)
         dp.show_feature_maps(A)
         # 4. predict properties
         all_preds = dp.predict(model, A, res=0.391)  # res is the spatial resolution of image in micron/pixel
-        dp.prettyresult(all_preds, 'C:/Users/bkotl/PycharmProjects/DeePoreCollab/results_folder/results35e.{}c.txt'.format(i))
+        dp.prettyresult(all_preds, 'C:/Users/bkotl/PycharmProjects/DeePoreCollab/results_folder/coated_res/results3e.{}c7.txt'.format(i))
 
 if __name__ == '__main__':
     main()
